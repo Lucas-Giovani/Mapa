@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeamento</title>
+    <style>
+
+        body
+        {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            flex-direction: row;
+        }
+
+        .boneco
+        {
+            width: 80px;
+            position: absolute;
+
+        }
+
+    </style>
+</head>
+<body onmousemove="Moveboneco(event)";>
+   
+    <map name= "meu_mapa">
+        <area onmouseover="MostrarRS();" onmouseleave="MostrarOriginal();" title="Rio Grande do Sul" shape="circle" coords="260,440,20" href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/10/mapa-rio-grande-sul.jpg"> 
+        <area onmouseover="MostrarSC();" onmouseleave="MostrarOriginal();" title="Santa Catarina" shape="circle" coords="300,410,15" href="https://www.infoescola.com/wp-content/uploads/2009/12/mapa-sc-municipios-450x299.jpg"> 
+        <area onmouseover="MostrarPR();" onmouseleave="MostrarOriginal();" title="Paraná" shape="circle" coords="280,380,20" href="https://upload.wikimedia.org/wikipedia/commons/3/3f/Mapa-do-Paran%C3%A1-imagem-8.gif">
+        <area onmouseover="MostrarSP();" onmouseleave="MostrarOriginal();" title="São Paulo" shape="circle" coords="310,345,20" href="https://1.bp.blogspot.com/-qqUC_6-2Vl4/TqwtcPiWLOI/AAAAAAAAIs0/Nx-gxAhUOUE/s1600/mapa_regioes_estado_sao_paulo.jpg"> 
+        <area onmouseover="MostrarMS();" onmouseleave="MostrarOriginal();" title="Mato Grosso do Sul" shape="circle" coords="240,325,20" href="https://www.pantanalms.com.br/wp-content/uploads/2018/08/mapa_atual_do_MS..jpg"> 
+        <area onmouseover="MostrarMG();" onmouseleave="MostrarOriginal();" title="Minas Gerais" shape="circle" coords="370,315,25" href="https://static.todamateria.com.br/upload/mi/na/minasgeraismapapolitico-cke.jpg"> 
+        <area onmouseover="MostrarRJ();" onmouseleave="MostrarOriginal();" title="Rio de Janeiro" shape="circle" coords="385,350,10" href="https://static.wixstatic.com/media/c74752_06cba9a84f42433db163abc0b8e78d06~mv2_d_3509_2481_s_4_2.jpg/v1/fill/w_1335,h_920,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/0001.jpg"> 
+        <area onmouseover="MostrarES();" onmouseleave="MostrarOriginal();" title="Espirito Santo" shape="circle" coords="412,321,10" href="https://www.es.gov.br/Media/PortalES/_Profiles/c4d8c6e6/2b07643f/Setur%20-%2012072016%20-%20MAPA_DO_TURISMO_NO_ESPIRITO_SANTO_EM_CURVA.png?v=637782048537059060"> 
+        <area onmouseover="MostrarGO();" onmouseleave="MostrarOriginal();" title="Goais" shape="circle" coords="295,275,20" href="https://www.turismo.go.gov.br/images/2017/08/Mapa-Regionaliza%C3%A7%C3%A3o-2017-1.jpg"> 
+        <area onmouseover="MostrarDS();" onmouseleave="MostrarOriginal();" title="Distrito Federal" shape="circle" coords="325,267,4" href="https://gismaps.com.br/wp-content/uploads/edd/2017/02/distrito_federal_cdr-1.jpg"> 
+        <area onmouseover="MostrarBA();" onmouseleave="MostrarOriginal();" title="Bahia" shape="circle" coords="395,230,25" href="https://www.brasil-turismo.com/imagens/mapa-bahia.jpg"> 
+        <area onmouseover="MostrarSE();" onmouseleave="MostrarOriginal();" title="Sergipe" shape="circle" coords="454,207,5" href="https://guianet.com.br/images/mapadobrasil/se/mapase.gif">
+        <area onmouseover="MostrarAL();" onmouseleave="MostrarOriginal();" title="Alagoas" shape="circle" coords="465,200,6" href="http://www.assistenciasocial.al.gov.br/images/Ativo_14x_1.png"> 
+        <area onmouseover="MostrarPE();" onmouseleave="MostrarOriginal();" title="Pernanbuco" shape="circle" coords="448,181,6" href="https://www.apac.pe.gov.br/images/Monitor_de_Secas_PE_Fevereiro_2023.png"> 
+        <area onmouseover="MostrarPB();" onmouseleave="MostrarOriginal();" title="Paraíba" shape="circle" coords="474,167,6" href="https://www.tjpb.jus.br/sites/default/files/media/2019/03/26_03_19_mapa_das_comarcas_pb.jpg"> 
+        <area onmouseover="MostrarRN();" onmouseleave="MostrarOriginal();" title="Rio Grande do Norte" shape="circle" coords="467,148,7" href="https://www.gov.br/cgu/pt-br/imagens/mapa-municipios-rn.png/@@images/image.png"> 
+        <area onmouseover="MostrarCE();" onmouseleave="MostrarOriginal();" title="Ceará" shape="circle" coords="430,137,15" href="https://www.ceara.gov.br/wp-content/uploads/2020/07/mapa_page-0001.jpg"> 
+        <area onmouseover="MostrarPI();" onmouseleave="MostrarOriginal();" title="Piauí" shape="circle" coords="390,170,13" href="https://www.brasil-turismo.com/imagens/mapa-piaui.jpg"> 
+        <area onmouseover="MostrarMA();" onmouseleave="MostrarOriginal();" title="Maranhão" shape="circle" coords="360,133,23" href="https://www.brasil-turismo.com/imagens/mapa-maranhao.jpg"> 
+        <area onmouseover="MostrarTO();" onmouseleave="MostrarOriginal();" title="Tocantins" shape="circle" coords="320,200,25" href="brasil-turismo.com/imagens/mapa-tocantins.jpg"> 
+        <area onmouseover="MostrarMT();" onmouseleave="MostrarOriginal();" title="Mato Grosso" shape="circle" coords="230,235,40" href="http://www.mapas-brasil.com/imagens/mato-grosso.jpg"> 
+        <area onmouseover="MostrarPA();" onmouseleave="MostrarOriginal();" title="Pará" shape="circle" coords="265,135,50" href="https://www.brasil-turismo.com/imagens/mapa-para.jpg"> 
+        <area onmouseover="MostrarAP();" onmouseleave="MostrarOriginal();" title="Amapá" shape="circle" coords="280,55,15" href="https://www.guiageo.com/pictures/mapa-amapa.jpg"> 
+        <area onmouseover="MostrarRO();" onmouseleave="MostrarOriginal();" title="Rondonia" shape="circle" coords="140,210,20" href="https://www.guiageo.com/pictures/mapa-rondonia.jpg"> 
+        <area onmouseover="MostrarAM();" onmouseleave="MostrarOriginal();" title="Amazonas" shape="circle" coords="115,120,60" href="https://www.guiageo.com/pictures/mapa-amazonas.jpg"> 
+        <area onmouseover="MostrarRR();" onmouseleave="MostrarOriginal();" title="Roraima" shape="circle" coords="160,45,20" href="https://pt.mapsofworld.com/brasil/estados/maps/roraima-mapa.jpg"> 
+        <area onmouseover="MostrarAC();" onmouseleave="MostrarOriginal();" title="Acre" shape="circle" coords="38,186,15" href="https://www.guiageo.com/pictures/mapa-acre.jpg">
+    </map> 
+
+    <img src="boneco.gif" class="boneco" id="boneco">
+    <img src="mapa_brasil.jpg" class="mapa" id="brasil" usemap="#meu_mapa">
+
+    <script>
+
+        function MostrarRS()
+        {
+            boneco.src = "RS.png";
+        }
+        function MostrarSC()
+        {
+            boneco.src = "SC.png";
+        }
+        function MostrarPR()
+        {
+            boneco.src = "PR.png";
+        }
+        function MostrarSP()
+        {
+            boneco.src = "SP.png";
+        }
+        function MostrarMS()
+        {
+            boneco.src = "MS.png";
+        }
+        function MostrarMG()
+        {
+            boneco.src = "MG.png";
+        }
+        function MostrarRJ()
+        {
+            boneco.src = "RJ.png";
+        }
+        function MostrarES()
+        {
+            boneco.src = "ES.png";
+        }
+        function MostrarGO()
+        {
+            boneco.src = "GO.png";
+        }
+        function MostrarDS()
+        {
+            boneco.src = "DS.png";
+        }
+        function MostrarBA()
+        {
+            boneco.src = "BA.png";
+        }
+        function MostrarSE()
+        {
+            boneco.src = "SE.png";
+        }
+        function MostrarAL()
+        {
+            boneco.src = "AL.png";
+        }
+        function MostrarPE()
+        {
+            boneco.src = "PE.png";
+        }
+        function MostrarPB()
+        {
+            boneco.src = "PB.png";
+        }
+        function MostrarRN()
+        {
+            boneco.src = "RN.png";
+        }
+        function MostrarCE()
+        {
+            boneco.src = "CE.png";
+        }
+        function MostrarPI()
+        {
+            boneco.src = "PI.png";
+        }
+        function MostrarMA()
+        {
+            boneco.src = "MA.png";
+        }
+        function MostrarTO()
+        {
+            boneco.src = "TO.png";
+        }
+        function MostrarMT()
+        {
+            boneco.src = "MT.png";
+        }
+        function MostrarPA()
+        {
+            boneco.src = "PA.png";
+        }
+        function MostrarAP()
+        {
+            boneco.src = "AP.png";
+        }
+        function MostrarRO()
+        {
+            boneco.src = "RO.png";
+        }
+        function MostrarAM()
+        {
+            boneco.src = "AM.png";
+        }
+        function MostrarRR()
+        {
+            boneco.src = "RR.png";
+        }
+        function MostrarAC()
+        {
+            boneco.src = "AC.png";
+        }
+
+        function MostrarOriginal(event)
+        {
+            boneco.src = "boneco.gif";
+        }
+
+        function Moveboneco(event)
+        {
+            x = event.pageX;
+            y = event.pageY;
+            boneco.style.left = (x+1) + "px";
+            boneco.style.top = (y+1) + "px";
+        }
+
+    </script>
+
+</body>
+</html>
